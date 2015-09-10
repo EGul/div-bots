@@ -26,7 +26,7 @@ programmable div bots
 var opts = {
   numberOfBots: 50,
   size: 10,
-  rows: 10,
+  spacing: 10,
   speed: 1
   color: 'black'
 }

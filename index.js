@@ -40,7 +40,7 @@ function DivBots(opts) {
 
   div = document.getElementById('divbots');
 
-  var spacing = div.clientWidth / this.opts.rows;
+  var spacing = div.clientWidth / this.opts.spacing;
 
   var currentX = spacing;
   var currentY = spacing;
