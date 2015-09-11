@@ -28,7 +28,11 @@ var opts = {
   size: 10,
   spacing: 10,
   speed: 1
-  color: 'black'
+  color: 'black',
+  contact: {
+    length: 10,
+    color: 'red'
+  }
 }
 
 var divBots = new DivBots(opts);

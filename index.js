@@ -4,6 +4,8 @@ function Bot(opts) {
   this.div;
   this.opts = opts;
 
+  var currentContactLength = 0;
+
   this.div = document.createElement('div');
 
   this.div.style.position = 'absolute';
@@ -27,6 +29,18 @@ function Bot(opts) {
     this.opts.y = this.opts.y + (this.opts.yDirection * this.opts.speed);
     this.div.style.marginTop = this.opts.y + 'px';
 
+    if (currentContactLength > 0) {
+      currentContactLength--;
+      if (currentContactLength === 0) {
+        this.div.style.backgroundColor = this.opts.color;
+      }
+    }
+
+  }
+
+  this.contact = function () {
+    currentContactLength = this.opts.contact.length;
+    this.div.style.backgroundColor = this.opts.contact.color;
   }
 
 }
@@ -73,7 +87,8 @@ function DivBots(opts) {
       yDirection: yDirection,
       speed: this.opts.speed,
       size: this.opts.size,
-      color: this.opts.color
+      color: this.opts.color,
+      contact: this.opts.contact
     }
 
     var bot = new Bot(botOpts);
@@ -111,6 +126,7 @@ function DivBots(opts) {
       }
 
       if (contact) {
+        currentBot.contact();
         currentBot.reverse();
       }
 
